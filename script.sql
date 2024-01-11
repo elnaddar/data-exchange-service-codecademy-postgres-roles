@@ -61,4 +61,6 @@ SELECT id, publisher, hosting_path, data_checksum
 FROM directory.datasets;
 
 SELECT id, publisher, hosting_path 
-FROM directory.datasets
+FROM directory.datasets;
+
+SET ROLE postgres;
