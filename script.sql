@@ -75,3 +75,11 @@ USING (current_user = owner);
 
 ALTER TABLE analytics.downloads
 ENABLE ROW LEVEL SECURITY;
+
+-- Write a query to SELECT the first few rows of this table. Now SET your role to abc_open_data and re-run the same query, are the results the same?
+SELECT * FROM analytics.downloads LIMIT 10;
+
+SET ROLE abc_open_data;
+SELECT * FROM analytics.downloads LIMIT 10;
+
+SET ROLE postgres;
