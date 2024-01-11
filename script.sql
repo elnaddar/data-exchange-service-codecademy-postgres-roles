@@ -19,3 +19,7 @@ CREATE ROLE abc_open_data WITH NOSUPERUSER LOGIN;
 -- Now let’s create a non-superuser group role named publishers and include abc_open_data as a member.
 -- We can add multiple publishers to this group role and then manage their permissions by modifying this role.
 CREATE ROLE publishers WITH NOSUPERUSER ROLE abc_open_data;
+
+-- # Granting a Publisher Access to Analytics
+-- There’s a schema in the database named analytics. All publishers should have access to this schema. Grant USAGE on this schema to publishers
+GRANT USAGE ON SCHEMA analytics To publishers;
