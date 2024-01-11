@@ -37,3 +37,5 @@ WHERE grantee = 'publishers';
 -- Let’s confirm that abc_open_data has the ability to SELECT on analytics.downloads through inheritance from publishers.
 -- SET your role to abc_open_data and try the query below:
 SET ROLE abc_open_data;
+
+SELECT * FROM analytics.downloads;
