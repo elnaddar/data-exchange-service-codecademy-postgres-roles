@@ -23,3 +23,8 @@ CREATE ROLE publishers WITH NOSUPERUSER ROLE abc_open_data;
 -- # Granting a Publisher Access to Analytics
 -- There’s a schema in the database named analytics. All publishers should have access to this schema. Grant USAGE on this schema to publishers
 GRANT USAGE ON SCHEMA analytics To publishers;
+
+--Now that publishers has USAGE, write the query that grants publishers the ability to SELECT on all existing tables in analytics.
+GRANT SELECT ON ALL TABLES
+IN SCHEMA analytics
+TO publishers;
