@@ -45,3 +45,6 @@ SET ROLE postgres;
 -- # Granting a Publisher Access to Dataset Listings
 -- There is a table named directory.datasets in the database with the following schema. SELECT from this table to see a few sample rows.
 SELECT * FROM directory.datasets LIMIT 5;
+
+-- Grant USAGE on directory to publishers. This statement should be almost identical to the way that we granted USAGE on analytics.
+GRANT USAGE ON SCHEMA directory TO publishers;
