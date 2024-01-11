@@ -15,3 +15,7 @@ SELECT CURRENT_SCHEMA;
 -- In this section we’ll add a role for our first publisher, “ABC Open Data, Inc.”
 -- First, let’s create a login role named abc_open_data without superuser permissions.
 CREATE ROLE abc_open_data WITH NOSUPERUSER LOGIN;
+
+-- Now let’s create a non-superuser group role named publishers and include abc_open_data as a member.
+-- We can add multiple publishers to this group role and then manage their permissions by modifying this role.
+CREATE ROLE publishers WITH NOSUPERUSER ROLE abc_open_data;
