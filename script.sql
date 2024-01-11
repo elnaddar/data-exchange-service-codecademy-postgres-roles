@@ -53,3 +53,12 @@ GRANT USAGE ON SCHEMA directory TO publishers;
 GRANT SELECT(id, create_date, hosting_path, publisher, src_size)
 ON TABLE directory.datasets
 TO publishers;
+
+-- Let’s mimic what might happen if a publisher tries to query the dataset directory for all dataset names and paths.
+SET ROLE abc_open_data;
+
+SELECT id, publisher, hosting_path, data_checksum 
+FROM directory.datasets;
+
+SELECT id, publisher, hosting_path 
+FROM directory.datasets
