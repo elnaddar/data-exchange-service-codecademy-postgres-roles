@@ -64,3 +64,14 @@ SELECT id, publisher, hosting_path
 FROM directory.datasets;
 
 SET ROLE postgres;
+
+-- # Adding Row Level Security on Downloads Data
+-- Although we’re designing a collaborative data environment, we may want to implement some degree of privacy between publishers.
+-- Let’s implement row level security on analytics.downloads. Create and enable policy that says that the current_user must be the publisher of the dataset to SELECT.
+CREATE POLICY user_downloads_policy
+ON analytics.downloads
+FOR SELECT TO publishers
+USING (current_user = owner);
+
+ALTER TABLE analytics.downloads
+ENABLE ROW LEVEL SECURITY;
