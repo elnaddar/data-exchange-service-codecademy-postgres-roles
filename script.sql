@@ -10,3 +10,8 @@ FROM "pg_catalog"."pg_roles";
 -- Now that you have the name of the superuser, check the name of the role you’re currently using. Is this role the superuser?
 SELECT CURRENT_ROLE;
 SELECT CURRENT_SCHEMA;
+
+-- # Adding a Publisher
+-- In this section we’ll add a role for our first publisher, “ABC Open Data, Inc.”
+-- First, let’s create a login role named abc_open_data without superuser permissions.
+CREATE ROLE abc_open_data WITH NOSUPERUSER LOGIN;
