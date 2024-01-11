@@ -48,3 +48,8 @@ SELECT * FROM directory.datasets LIMIT 5;
 
 -- Grant USAGE on directory to publishers. This statement should be almost identical to the way that we granted USAGE on analytics.
 GRANT USAGE ON SCHEMA directory TO publishers;
+
+-- Let’s write a statement to GRANT SELECT on all columns in this table (except data_checksum) to publishers.
+GRANT SELECT(id, create_date, hosting_path, publisher, src_size)
+ON TABLE directory.datasets
+TO publishers;
