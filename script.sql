@@ -28,3 +28,8 @@ GRANT USAGE ON SCHEMA analytics To publishers;
 GRANT SELECT ON ALL TABLES
 IN SCHEMA analytics
 TO publishers;
+
+-- Check to see how PostgreSQL has recorded the changes to the schema permissions you just updated.
+SELECT *
+FROM "information_schema"."table_privileges"
+WHERE grantee = 'publishers';
