@@ -39,3 +39,5 @@ WHERE grantee = 'publishers';
 SET ROLE abc_open_data;
 
 SELECT * FROM analytics.downloads;
+
+SET ROLE postgres;
